@@ -1,0 +1,644 @@
+{
+  "Type": [
+    {
+      "trait_type": "Kidcitizen",
+      "rarity": "67.06"
+    },
+    {
+      "trait_type": "Lil'Monstaz",
+      "rarity": "21.65"
+    },
+    {
+      "trait_type": "Astrokiddie",
+      "rarity": "3.02"
+    },
+    {
+      "trait_type": "Super-K",
+      "rarity": "1.49"
+    },
+    {
+      "trait_type": "Kid Patrol",
+      "rarity": "6.35"
+    },
+    {
+      "trait_type": "Kiduminati",
+      "rarity": "0.41"
+    }
+  ],
+  "Background": [
+    {
+      "trait_type": "Photo Booth",
+      "rarity": "23.76"
+    },
+    {
+      "trait_type": "Wakamono Beach",
+      "rarity": "9.14"
+    },
+    {
+      "trait_type": "Kiddies School",
+      "rarity": "7.47"
+    },
+    {
+      "trait_type": "Underwater Whale Observatory",
+      "rarity": "6.62"
+    },
+    {
+      "trait_type": "Urban Metro",
+      "rarity": "14.36"
+    },
+    {
+      "trait_type": "Late-afternoon Club",
+      "rarity": "5.81"
+    },
+    {
+      "trait_type": "Suburban Tower",
+      "rarity": "19.76"
+    },
+    {
+      "trait_type": "Lunar Base",
+      "rarity": "2.16"
+    },
+    {
+      "trait_type": "Younger Park",
+      "rarity": "5.49"
+    },
+    {
+      "trait_type": "Kidcity Hall",
+      "rarity": "2.16"
+    },
+    {
+      "trait_type": "Badkid Jail",
+      "rarity": "3.29"
+    }
+  ],
+  "Expression": [
+    {
+      "trait_type": "Eater",
+      "rarity": "14.99"
+    },
+    {
+      "trait_type": "Tired",
+      "rarity": "19.98"
+    },
+    {
+      "trait_type": "Cheerful",
+      "rarity": "18.95"
+    },
+    {
+      "trait_type": "Malicious",
+      "rarity": "9.45"
+    },
+    {
+      "trait_type": "Grumpy",
+      "rarity": "17.51"
+    },
+    {
+      "trait_type": "Snob",
+      "rarity": "19.13"
+    }
+  ],
+  "Hair": [
+    {
+      "trait_type": "Side-Swept Bangs",
+      "rarity": "4.64"
+    },
+    {
+      "trait_type": "Big Spiky",
+      "rarity": "5.13"
+    },
+    {
+      "trait_type": "Shaved",
+      "rarity": "3.06"
+    },
+    {
+      "trait_type": "Tight Top Knot Bun",
+      "rarity": "5.40"
+    },
+    {
+      "trait_type": "Mop Top",
+      "rarity": "4.19"
+    },
+    {
+      "trait_type": "Tousled",
+      "rarity": "4.19"
+    },
+    {
+      "trait_type": "Space Buns",
+      "rarity": "5.40"
+    },
+    {
+      "trait_type": "Slick Back",
+      "rarity": "4.59"
+    },
+    {
+      "trait_type": "Emo",
+      "rarity": "3.83"
+    },
+    {
+      "trait_type": "Medium Square",
+      "rarity": "1.71"
+    },
+    {
+      "trait_type": "Blowout",
+      "rarity": "2.21"
+    },
+    {
+      "trait_type": "Crop Top Fade",
+      "rarity": "2.93"
+    },
+    {
+      "trait_type": "Braids",
+      "rarity": "2.30"
+    },
+    {
+      "trait_type": "Curly",
+      "rarity": "3.38"
+    },
+    {
+      "trait_type": "Ponytail",
+      "rarity": "3.11"
+    },
+    {
+      "trait_type": "Curtains",
+      "rarity": "2.52"
+    },
+    {
+      "trait_type": "Half Shaved",
+      "rarity": "4.46"
+    },
+    {
+      "trait_type": "Double Braid",
+      "rarity": "6.17"
+    },
+    {
+      "trait_type": "Top Not",
+      "rarity": "2.66"
+    },
+    {
+      "trait_type": "Bangs With Chopsticks Bun",
+      "rarity": "2.88"
+    },
+    {
+      "trait_type": "Short Brush Up",
+      "rarity": "2.84"
+    },
+    {
+      "trait_type": "Lonely Spikes",
+      "rarity": "3.15"
+    },
+    {
+      "trait_type": "Hightop Dreads",
+      "rarity": "6.17"
+    },
+    {
+      "trait_type": "Spiky Hair Undercut",
+      "rarity": "1.89"
+    },
+    {
+      "trait_type": "Mohawk",
+      "rarity": "1.40"
+    },
+    {
+      "trait_type": "Messy",
+      "rarity": "2.03"
+    },
+    {
+      "trait_type": "Long Bob",
+      "rarity": "4.01"
+    },
+    {
+      "trait_type": "Dreads Undercut",
+      "rarity": "2.39"
+    },
+    {
+      "trait_type": "Spiked Mohawk",
+      "rarity": "1.44"
+    }
+  ],
+  "Hat": [
+    {
+      "trait_type": "Black Cap",
+      "rarity": "9.45"
+    },
+    {
+      "trait_type": "Beret",
+      "rarity": "6.44"
+    },
+    {
+      "trait_type": "Mirai Beanie",
+      "rarity": "4.46"
+    },
+    {
+      "trait_type": "No Hat",
+      "rarity": "28.94"
+    },
+    {
+      "trait_type": "Color Cap",
+      "rarity": "3.65"
+    },
+    {
+      "trait_type": "Skull Beret",
+      "rarity": "2.34"
+    },
+    {
+      "trait_type": "High Cap",
+      "rarity": "3.02"
+    },
+    {
+      "trait_type": "Bullish Hat",
+      "rarity": "1.58"
+    },
+    {
+      "trait_type": "Aviator Headgear",
+      "rarity": "9.95"
+    },
+    {
+      "trait_type": "Hat and Durag",
+      "rarity": "3.87"
+    },
+    {
+      "trait_type": "Adventurer's Bob",
+      "rarity": "1.35"
+    },
+    {
+      "trait_type": "Sedge Hat",
+      "rarity": "3.65"
+    },
+    {
+      "trait_type": "Chapka",
+      "rarity": "2.52"
+    },
+    {
+      "trait_type": "Commander Hat",
+      "rarity": "1.17"
+    },
+    {
+      "trait_type": "Lil'Monstaz Cap",
+      "rarity": "1.94"
+    },
+    {
+      "trait_type": "Wide Hat",
+      "rarity": "0.99"
+    },
+    {
+      "trait_type": "Cat Beret",
+      "rarity": "1.53"
+    },
+    {
+      "trait_type": "Black Beanie",
+      "rarity": "9.36"
+    },
+    {
+      "trait_type": "WAGMI Beanie",
+      "rarity": "1.49"
+    },
+    {
+      "trait_type": "Security Helmet",
+      "rarity": "0.36"
+    },
+    {
+      "trait_type": "Meka-Mask",
+      "rarity": "0.14"
+    },
+    {
+      "trait_type": "Samurai Helmet",
+      "rarity": "0.27"
+    },
+    {
+      "trait_type": "Cat Cap",
+      "rarity": "1.58"
+    }
+  ],
+  "Extra": [
+    {
+      "trait_type": "Nose Ring",
+      "rarity": "18.36"
+    },
+    {
+      "trait_type": "Freedom Earrings",
+      "rarity": "26.91"
+    },
+    {
+      "trait_type": "Punk Earrings ",
+      "rarity": "15.21"
+    },
+    {
+      "trait_type": "Double Earrings",
+      "rarity": "16.02"
+    },
+    {
+      "trait_type": "Takotsubo Earrings",
+      "rarity": "3.29"
+    },
+    {
+      "trait_type": "Audio Headphone",
+      "rarity": "2.61"
+    },
+    {
+      "trait_type": "Epaulet",
+      "rarity": "9.36"
+    },
+    {
+      "trait_type": "Kid Patrol Earrings",
+      "rarity": "6.17"
+    }
+  ],
+  "Glasses": [
+    {
+      "trait_type": "No Glasses",
+      "rarity": "47.88"
+    },
+    {
+      "trait_type": "Swaggy glasses",
+      "rarity": "6.71"
+    },
+    {
+      "trait_type": "Pointy Glasses",
+      "rarity": "3.33"
+    },
+    {
+      "trait_type": "Large Lens",
+      "rarity": "3.83"
+    },
+    {
+      "trait_type": "Protective Glasses",
+      "rarity": "10.04"
+    },
+    {
+      "trait_type": "Round Glasses",
+      "rarity": "3.15"
+    },
+    {
+      "trait_type": "May Ban Glasses",
+      "rarity": "7.70"
+    },
+    {
+      "trait_type": "Accuracy Glasses",
+      "rarity": "5.00"
+    },
+    {
+      "trait_type": "Half-Moon Glasses",
+      "rarity": "4.55"
+    },
+    {
+      "trait_type": "Sunglasses",
+      "rarity": "3.83"
+    },
+    {
+      "trait_type": "Tactical Glasses",
+      "rarity": "2.61"
+    },
+    {
+      "trait_type": "Rabbit Glasses",
+      "rarity": "0.32"
+    }
+  ],
+  "Clothes": [
+    {
+      "trait_type": "Traditional Kimono",
+      "rarity": "4.32"
+    },
+    {
+      "trait_type": "Fire Flames Jacket",
+      "rarity": "2.21"
+    },
+    {
+      "trait_type": "Hoodie",
+      "rarity": "6.98"
+    },
+    {
+      "trait_type": "Spiked Jacket",
+      "rarity": "2.66"
+    },
+    {
+      "trait_type": "Basic Tee-Shirt",
+      "rarity": "9.63"
+    },
+    {
+      "trait_type": "Aviator Jacket",
+      "rarity": "4.68"
+    },
+    {
+      "trait_type": "Designer Top",
+      "rarity": "2.57"
+    },
+    {
+      "trait_type": "Parka Long",
+      "rarity": "4.05"
+    },
+    {
+      "trait_type": "Sleeveless Jacket",
+      "rarity": "3.02"
+    },
+    {
+      "trait_type": "GMI Jacket",
+      "rarity": "3.74"
+    },
+    {
+      "trait_type": "Astronaut Suit",
+      "rarity": "3.02"
+    },
+    {
+      "trait_type": "Trendy T-Shirt",
+      "rarity": "6.26"
+    },
+    {
+      "trait_type": "Tracksuit 'Fox Dojo'",
+      "rarity": "6.44"
+    },
+    {
+      "trait_type": "Fur Collar Jacket",
+      "rarity": "2.03"
+    },
+    {
+      "trait_type": "Super-K Force Suit",
+      "rarity": "1.49"
+    },
+    {
+      "trait_type": "Patterned Jacket",
+      "rarity": "3.47"
+    },
+    {
+      "trait_type": "Exotic Shirt",
+      "rarity": "5.00"
+    },
+    {
+      "trait_type": "Short Leather Jacket",
+      "rarity": "1.58"
+    },
+    {
+      "trait_type": "Suit Gilet",
+      "rarity": "1.22"
+    },
+    {
+      "trait_type": "Half-Transparent Top",
+      "rarity": "3.74"
+    },
+    {
+      "trait_type": "Kid Patrol Chest",
+      "rarity": "6.35"
+    },
+    {
+      "trait_type": "Dungarees",
+      "rarity": "2.66"
+    },
+    {
+      "trait_type": "Short Jacket",
+      "rarity": "2.79"
+    },
+    {
+      "trait_type": "Raincoat",
+      "rarity": "3.24"
+    },
+    {
+      "trait_type": "Colored Suit",
+      "rarity": "0.68"
+    },
+    {
+      "trait_type": "Kimono 'Fox Dojo'",
+      "rarity": "2.39"
+    },
+    {
+      "trait_type": "Warrior Armor",
+      "rarity": "0.99"
+    },
+    {
+      "trait_type": "Shirtless",
+      "rarity": "2.07"
+    },
+    {
+      "trait_type": "Black Suit",
+      "rarity": "0.81"
+    }
+  ],
+  "Pets": [
+    {
+      "trait_type": "Lucky Golden Fish",
+      "rarity": "2.25"
+    },
+    {
+      "trait_type": "Lucky Shiba",
+      "rarity": "1.13"
+    },
+    {
+      "trait_type": "Lucky Cat",
+      "rarity": "4.50"
+    },
+    {
+      "trait_type": "Lucky Bot",
+      "rarity": "0.45"
+    }
+  ],
+  "Backpack Loadout": [
+    {
+      "trait_type": "Backpack",
+      "rarity": "44.10"
+    },
+    {
+      "trait_type": "GameBox",
+      "rarity": "3.47"
+    },
+    {
+      "trait_type": "Paint Palette",
+      "rarity": "2.79"
+    },
+    {
+      "trait_type": "Scrolls",
+      "rarity": "9.59"
+    },
+    {
+      "trait_type": "Lantern",
+      "rarity": "4.86"
+    },
+    {
+      "trait_type": "Gourd Bottle",
+      "rarity": "16.11"
+    },
+    {
+      "trait_type": "Oil-Paper Umbrella",
+      "rarity": "5.18"
+    },
+    {
+      "trait_type": "Melodica",
+      "rarity": "4.64"
+    },
+    {
+      "trait_type": "Skateboard",
+      "rarity": "8.46"
+    },
+    {
+      "trait_type": "Trumpet",
+      "rarity": "2.48"
+    },
+    {
+      "trait_type": "Compact Jetpack",
+      "rarity": "2.21"
+    },
+    {
+      "trait_type": "Wooden Sword",
+      "rarity": "3.33"
+    },
+    {
+      "trait_type": "Mecha Wings",
+      "rarity": "0.45"
+    },
+    {
+      "trait_type": "Heroes Cape",
+      "rarity": "0.90"
+    },
+    {
+      "trait_type": "Jetpack",
+      "rarity": "0.36"
+    }
+  ],
+  "Face Accessories": [
+    {
+      "trait_type": "Bandana",
+      "rarity": "1.44"
+    },
+    {
+      "trait_type": "Face Patches",
+      "rarity": "6.75"
+    },
+    {
+      "trait_type": "Bolt Make-up",
+      "rarity": "1.62"
+    },
+    {
+      "trait_type": "Pirate Eyepatch",
+      "rarity": "3.60"
+    },
+    {
+      "trait_type": "Pink Patches",
+      "rarity": "4.50"
+    },
+    {
+      "trait_type": "Ninja Mask",
+      "rarity": "3.83"
+    },
+    {
+      "trait_type": "Floral Make-up",
+      "rarity": "4.14"
+    },
+    {
+      "trait_type": "Skull Make-up",
+      "rarity": "1.31"
+    },
+    {
+      "trait_type": "Lil'Monstaz Crown",
+      "rarity": "0.59"
+    },
+    {
+      "trait_type": "Sticking Plaster",
+      "rarity": "5.00"
+    },
+    {
+      "trait_type": "Kiduminati Mask",
+      "rarity": "0.41"
+    },
+    {
+      "trait_type": "Lil'Monstaz Mask",
+      "rarity": "1.08"
+    }
+  ]
+}
