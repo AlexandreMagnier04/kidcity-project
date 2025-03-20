@@ -11,18 +11,15 @@ model Card {
   id        Int    @id @default(autoincrement())
   name      String
   imageUrl  String
-  
   attributes Attribute[] @relation("card_attribute")
-  
 }
-
 
 model Attribute {
   id         Int    @id @default(autoincrement())
   trait_type String
-  value String
-  rarity Float 
-   cards Card[] @relation("card_attribute")
-  
-}
+  value      String
+  rarity     Float
+  cards      Card[] @relation("card_attribute")
 
+  @@unique([trait_type, value])
+}

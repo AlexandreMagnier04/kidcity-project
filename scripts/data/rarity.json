@@ -529,7 +529,7 @@
       "rarity": "0.45"
     }
   ],
-  "Backpack Loadout": [
+  "BackpackLoadout": [
     {
       "trait_type": "Backpack",
       "rarity": "44.10"
@@ -591,7 +591,7 @@
       "rarity": "0.36"
     }
   ],
-  "Face Accessories": [
+  "FaceAccessories": [
     {
       "trait_type": "Bandana",
       "rarity": "1.44"
