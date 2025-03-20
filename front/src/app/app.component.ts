@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  template: `
+    <app-header *ngIf="showHeader"></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styles: [`
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  `]
 })
 export class AppComponent {
-  title = 'front';
+  // Afficher le header seulement si l'utilisateur est authentifié
+  // Vous pouvez le configurer selon vos besoins
+  showHeader = true;
 }

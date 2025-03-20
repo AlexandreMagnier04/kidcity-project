@@ -1,0 +1,26 @@
+<header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a routerLink="/">Kidcity</a>
+      </div>
+      
+      <div class="navbar-menu" *ngIf="currentUser$ | async as user">
+        <div class="nav-item">
+          <a routerLink="/collection" routerLinkActive="active">Ma Collection</a>
+        </div>
+        <div class="nav-item">
+          <a routerLink="/bundle-opener" routerLinkActive="active">Ouvrir un bundle</a>
+        </div>
+        <div class="user-info">
+          <span class="kidcoins">{{ user.kidcoins }} Kidcoins</span>
+          <div class="dropdown">
+            <button class="dropdown-toggle">{{ user.username }}</button>
+            <div class="dropdown-menu">
+              <a routerLink="/profile">Mon profil</a>
+              <a (click)="logout()">Déconnexion</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
