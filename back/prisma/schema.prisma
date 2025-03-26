@@ -7,11 +7,28 @@ datasource db {
   url      = "mysql://root:root@localhost:8889/kidcity?schema=public"
 }
 
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  surname       String
+  name          String
+  password      String   
+  refreshToken  String?   
+  isActive      Boolean   @default(true)
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  cards         Card[]    @relation("user_cards")
+}
+
 model Card {
   id        Int    @id @default(autoincrement())
   name      String
   imageUrl  String
   attributes Attribute[] @relation("card_attribute")
+  users      User[]      @relation("user_cards")
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 }
 
 model Attribute {
@@ -20,6 +37,13 @@ model Attribute {
   value      String
   rarity     Float
   cards      Card[] @relation("card_attribute")
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
   @@unique([trait_type, value])
+}
+
+enum Role {
+  USER
+  ADMIN
 }
