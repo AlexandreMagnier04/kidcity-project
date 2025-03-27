@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from '.././src/nest/auth/auth.module';
-import { UsersModule } from './.././src/nest/users/users.module';
-import { PrismaModule } from '../prisma/prisma.module';
+import { PrismaModule } from './prisma/prisma.module';
 import { APP_GUARD } from '@nestjs/core';
-import { JwtAuthGuard } from './../src/nest/auth/guards/jwt-auth.guard';
+import { UsersModule } from './nest/users/users.module';
+import { AuthModule } from './nest/auth/auth.module';
+import { CardsModule } from './nest/cards/cards.module';
+import { JwtAuthGuard } from './nest/auth/decorators/public.decorator';
+
 
 @Module({
   imports: [
@@ -14,6 +16,7 @@ import { JwtAuthGuard } from './../src/nest/auth/guards/jwt-auth.guard';
     PrismaModule,
     UsersModule,
     AuthModule,
+    CardsModule, // Ajoutez le module Cards ici
   ],
   providers: [
     // Protection globale par défaut avec JWT

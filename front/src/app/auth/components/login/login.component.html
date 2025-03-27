@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Connexion</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" formControlName="email" class="form-control"
+                                [ngClass]="{'is-invalid': loginForm.get('email')?.touched && loginForm.get('email')?.invalid}"
+                                placeholder="Entrez votre email" />
+                            <div class="invalid-feedback">
+                                @if(loginForm.get('email')?.errors?.['required']) {
+                                L'email est requis
+                                }
+                                @if(loginForm.get('email')?.errors?.['email']) {
+                                Veuillez entrer un email valide
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" formControlName="password" class="form-control"
+                                [ngClass]="{'is-invalid': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}"
+                                placeholder="Entrez votre mot de passe" />
+                            <div class="invalid-feedback">
+                                @if(loginForm.get('password')?.errors?.['required']) {
+                                Le mot de passe est requis
+                                }
+                            </div>
+                        </div>
+
+                        @if(errorMessage) {
+                        <div class="alert alert-danger">
+                            {{ errorMessage }}
+                        </div>
+                        }
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" [disabled]="loading || loginForm.invalid" class="btn btn-primary">
+                                @if(loading) {
+                                <span class="spinner-border spinner-border-sm me-2" role="status"
+                                    aria-hidden="true"></span>
+                                }
+                                Se connecter
+                            </button>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <p>Vous n'avez pas de compte ? <a routerLink="/register">Inscrivez-vous</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

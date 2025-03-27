@@ -19,7 +19,7 @@ export interface AuthResponse {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000/auth'; // Ajustez l'URL selon votre configuration
@@ -27,17 +27,14 @@ export class AuthService {
   public currentUser$ = this.currentUserSubject.asObservable();
   private tokenExpirationTimer: any;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     this.loadStoredUser();
   }
 
   private loadStoredUser() {
     const userData = localStorage.getItem('user');
     const token = localStorage.getItem('access_token');
-
+    
     if (userData && token) {
       const user = JSON.parse(userData);
       this.currentUserSubject.next(user);
@@ -45,50 +42,41 @@ export class AuthService {
     }
   }
 
-  register(name: string, email: string, password: string): Observable<any> {
-    return this.http
-      .post<AuthResponse>(`${this.apiUrl}/register`, {
-        name,
-        email,
-        password,
-      })
-      .pipe(
-        tap((response) => this.handleAuthentication(response)),
-        catchError(this.handleError),
-      );
+  register(name: string, surname: string, email: string, password: string): Observable<any> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, {
+      name,
+      surname,
+      email,
+      password
+    }).pipe(
+      tap(response => this.handleAuthentication(response)),
+      catchError(this.handleError)
+    );
   }
 
   login(email: string, password: string): Observable<AuthResponse> {
-    return this.http
-      .post<AuthResponse>(`${this.apiUrl}/login`, {
-        email,
-        password,
-      })
-      .pipe(
-        tap((response) => this.handleAuthentication(response)),
-        catchError(this.handleError),
-      );
+    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, {
+      email,
+      password
+    }).pipe(
+      tap(response => this.handleAuthentication(response)),
+      catchError(this.handleError)
+    );
   }
 
   refreshToken(): Observable<AuthResponse> {
     const refreshToken = localStorage.getItem('refresh_token');
-    return this.http
-      .post<AuthResponse>(
-        `${this.apiUrl}/refresh`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${refreshToken}`,
-          },
-        },
-      )
-      .pipe(
-        tap((response) => this.handleAuthentication(response)),
-        catchError((error) => {
-          this.logout();
-          return throwError(() => error);
-        }),
-      );
+    return this.http.post<AuthResponse>(`${this.apiUrl}/refresh`, {}, {
+      headers: {
+        'Authorization': `Bearer ${refreshToken}`
+      }
+    }).pipe(
+      tap(response => this.handleAuthentication(response)),
+      catchError(error => {
+        this.logout();
+        return throwError(() => error);
+      })
+    );
   }
 
   logout() {
@@ -123,13 +111,13 @@ export class AuthService {
     const { accessToken, refreshToken, user } = response;
     localStorage.setItem('access_token', accessToken);
     localStorage.setItem('refresh_token', refreshToken);
-
+    
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
       this.currentUserSubject.next(user);
     } else {
       // Si l'utilisateur n'est pas inclus dans la réponse, récupérez-le
-      this.getProfile().subscribe((profile) => {
+      this.getProfile().subscribe(profile => {
         localStorage.setItem('user', JSON.stringify(profile));
         this.currentUserSubject.next(profile);
       });
@@ -156,7 +144,7 @@ export class AuthService {
 
   private handleError(error: any) {
     let errorMessage = 'Une erreur est survenue';
-
+    
     if (error.error instanceof ErrorEvent) {
       // Erreur côté client
       errorMessage = `Erreur: ${error.error.message}`;
@@ -164,7 +152,7 @@ export class AuthService {
       // Erreur retournée par le serveur
       errorMessage = `Erreur ${error.status}: ${error.error?.message || error.statusText}`;
     }
-
+    
     return throwError(() => errorMessage);
   }
 }

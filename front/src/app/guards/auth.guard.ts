@@ -1,21 +1,30 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard {
+  private router = inject(Router);
+  private authService = inject(AuthService);
   
-  constructor(private authService: AuthService, private router: Router) {}
-  
-  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.currentUserValue) {
+  canActivate(requiredRoles?: string[]): boolean {
+    if (this.authService.isAuthenticated()) {
+      // Vérifier les rôles si nécessaire
+      if (requiredRoles && requiredRoles.length > 0) {
+        const userRole = this.authService.getCurrentUser()?.role;
+        if (!userRole || !requiredRoles.includes(userRole)) {
+          // Rediriger vers une page d'accès refusé ou la page d'accueil
+          this.router.navigate(['/']);
+          return false;
+        }
+      }
       return true;
     }
     
     // Rediriger vers la page de connexion
-    return this.router.parseUrl('/login');
+    this.router.navigate(['/login']);
+    return false;
   }
 }

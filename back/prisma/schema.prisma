@@ -8,37 +8,37 @@ datasource db {
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
-  email         String    @unique
-  surname       String
-  name          String
-  password      String   
-  refreshToken  String?   
-  isActive      Boolean   @default(true)
-  role          Role      @default(USER)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  cards         Card[]    @relation("user_cards")
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  surname      String
+  name         String
+  password     String
+  refreshToken String?
+  isActive     Boolean  @default(true)
+  role         Role     @default(USER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+  cards        Card[]   @relation("user_cards")
 }
 
 model Card {
-  id        Int    @id @default(autoincrement())
-  name      String
-  imageUrl  String
+  id         Int         @id @default(autoincrement())
+  name       String
+  imageUrl   String
   attributes Attribute[] @relation("card_attribute")
   users      User[]      @relation("user_cards")
   createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  updatedAt  DateTime    @default(now()) @updatedAt
 }
 
 model Attribute {
-  id         Int    @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   trait_type String
   value      String
   rarity     Float
-  cards      Card[] @relation("card_attribute")
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  cards      Card[]   @relation("card_attribute")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
 
   @@unique([trait_type, value])
 }

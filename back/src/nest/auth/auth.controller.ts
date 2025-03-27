@@ -32,7 +32,12 @@ export class AuthController {
       surname: string;
     },
   ) {
-    return this.authService.register(userData);
+    try {
+      return await this.authService.register(userData);
+    }
+    catch (error) {
+      return error;
+    }
   }
 
   @Public()

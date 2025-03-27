@@ -1,9 +1,9 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { ConfigService } from '@nestjs/config';
 import { UserData } from '../users/interfaces/user.interface';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -13,17 +13,16 @@ export class AuthService {
     private configService: ConfigService,
   ) {}
 
-  async validateUser(
-    email: string,
-    password: string,
-  ): Promise<Omit<UserData, 'password'> | null> {
+  async validateUser(email: string, password: string) {
     const user = await this.usersService.findByEmail(email);
 
     if (!user) {
       throw new UnauthorizedException('Identifiants invalides');
     }
 
-    const isPasswordMatching = await bcrypt.compare(password, user.password);
+    const isPasswordMatching = user.password
+      ? await bcrypt.compare(password, user.password)
+      : false;
 
     if (!isPasswordMatching) {
       throw new UnauthorizedException('Identifiants invalides');
@@ -87,12 +86,16 @@ export class AuthService {
     if (!userData.password) {
       throw new Error('Password is required');
     }
-    return this.usersService.create({
+
+    console.log('userdata', userData);
+    const newUser = {
       email: userData.email,
       password: userData.password,
       name: userData.name,
       surname: userData.surname,
-    });
+    };
+
+    return await this.usersService.create(newUser);
   }
 
   async logout(userId: number) {

@@ -1,13 +1,12 @@
 import { SetMetadata } from '@nestjs/common';
 
-const IS_PUBLIC_KEY = 'isPublic';
+export const IS_PUBLIC_KEY = 'isPublic';
 export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
 
 // src/auth/guards/jwt-auth.guard.ts
 import { Injectable, ExecutionContext } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Reflector } from '@nestjs/core';
-import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {

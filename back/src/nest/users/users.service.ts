@@ -1,43 +1,55 @@
 import { Injectable, ConflictException } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
-import { User, Prisma } from '@prisma/client';
+import { Role, User } from '@prisma/client';
+
 import * as bcrypt from 'bcrypt';
+import { PrismaService } from 'src/prisma/prisma.service';
+
+// Interface pour remplacer le type User manquant de Prisma
+export interface UserData {
+  id?: number;
+  email: string;
+  name: string;
+  surname: string;
+  password?: string;
+  role?: Role;
+  refreshToken?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async findById(id: number): Promise<User | null> {
+  async findById(id: number){
     return this.prisma.user.findUnique({
       where: { id },
     });
   }
 
-  async findByEmail(email: string): Promise<User | null> {
-    return this.prisma.user.findUnique({
+  async findByEmail(email: string){
+    return await this.prisma.user.findUnique({
       where: { email },
     });
   }
 
-  async create(data: {
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-  }): Promise<Omit<User, 'password'>> {
+  async create(data: UserData) {
     // Vérifier si l'utilisateur existe déjà
-    const existingUser = await this.findByEmail(data.email);
-    if (existingUser) {
-      throw new ConflictException('Cet email est déjà utilisé');
-    }
+    // const existingUser = await this.findByEmail(data.email);
+    // if (existingUser) {
+    //   throw new ConflictException('Cet email est déjà utilisé');
+    // }
 
     // Hasher le mot de passe
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await bcrypt.hash(data.password as string, 10);
 
     const user = await this.prisma.user.create({
       data: {
-        ...data,
+        email: data.email,
+        name: data.name,
+        surname: data.surname,
         password: hashedPassword,
+        role: data.role || Role.USER,
       },
     });
 
@@ -61,14 +73,14 @@ export class UsersService {
     });
   }
 
-  async update(id: number, data: Prisma.UserUpdateInput): Promise<User> {
+  async update(id: number, data: User) {
     return this.prisma.user.update({
       where: { id },
       data,
     });
   }
 
-  async delete(id: number): Promise<User> {
+  async delete(id: number) {
     return this.prisma.user.delete({
       where: { id },
     });

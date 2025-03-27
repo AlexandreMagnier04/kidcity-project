@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="mb-4">Collection de cartes KidCity</h1>
+  
+    <div *ngIf="loading" class="text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+      <p class="mt-2">Chargement des cartes...</p>
+    </div>
+  
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+  
+    <div *ngIf="!loading && cards.length === 0" class="alert alert-info">
+      Aucune carte disponible pour le moment.
+    </div>
+  
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col" *ngFor="let card of cards">
+        <div class="card h-100">
+          <img [src]="card.imageUrl" class="card-img-top" alt="{{ card.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.name }}</h5>
+            <div class="card-attributes">
+              <div *ngFor="let attribute of card.attributes" class="badge bg-secondary me-1 mb-1">
+                {{ attribute.trait_type }}: {{ attribute.value }}
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-outline-primary btn-sm" disabled>
+              Voir détails
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

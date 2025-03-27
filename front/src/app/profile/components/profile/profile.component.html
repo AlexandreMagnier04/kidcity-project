@@ -1,0 +1,78 @@
+<div class="container">
+    <h1 class="mb-4">Profil Utilisateur</h1>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Informations personnelles</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+              <div *ngIf="updateSuccess" class="alert alert-success">Profil mis à jour avec succès!</div>
+  
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" readonly>
+              </div>
+  
+              <div class="mb-3">
+                <label for="name" class="form-label">Prénom</label>
+                <input type="text" class="form-control" formControlName="name"
+                  [ngClass]="{ 'is-invalid': profileForm.get('name')?.touched && profileForm.get('name')?.invalid }">
+                <div class="invalid-feedback" *ngIf="profileForm.get('name')?.errors?.['required']">
+                  Le prénom est requis
+                </div>
+              </div>
+  
+              <div class="mb-3">
+                <label for="surname" class="form-label">Nom</label>
+                <input type="text" class="form-control" formControlName="surname"
+                  [ngClass]="{ 'is-invalid': profileForm.get('surname')?.touched && profileForm.get('surname')?.invalid }">
+                <div class="invalid-feedback" *ngIf="profileForm.get('surname')?.errors?.['required']">
+                  Le nom est requis
+                </div>
+              </div>
+  
+              <button type="submit" class="btn btn-primary" [disabled]="loading || profileForm.invalid">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                Mettre à jour
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Mes Cartes</h5>
+          </div>
+          <div class="card-body">
+            <div *ngIf="loadingCards" class="text-center my-3">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Chargement...</span>
+              </div>
+              <p class="mt-2">Chargement de vos cartes...</p>
+            </div>
+  
+            <div *ngIf="!loadingCards && userCards.length === 0" class="alert alert-info">
+              Vous n'avez pas encore de cartes dans votre collection.
+            </div>
+  
+            <div class="row row-cols-1 row-cols-md-2 g-3" *ngIf="!loadingCards && userCards.length > 0">
+              <div class="col" *ngFor="let card of userCards">
+                <div class="card h-100">
+                  <img [src]="card.imageUrl" class="card-img-top" alt="{{ card.name }}">
+                  <div class="card-body">
+                    <h6 class="card-title">{{ card.name }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

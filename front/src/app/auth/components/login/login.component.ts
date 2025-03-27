@@ -2,30 +2,30 @@ import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
   Validators,
+  ReactiveFormsModule,
+  FormsModule,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-
-import { AuthService } from '../../services/auth.service';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule],
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  isSubmitting = false;
-  errorMessage = '';
+  errorMessage: string = '';
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private router: Router,
+    private authService: AuthService,
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -38,24 +38,17 @@ export class LoginComponent {
       return;
     }
 
-    this.isSubmitting = true;
-    this.errorMessage = '';
-
+    this.loading = true;
     const { email, password } = this.loginForm.value;
 
     this.authService.login(email, password).subscribe({
       next: () => {
-        this.router.navigate(['/collection']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
-        this.errorMessage = error.message;
-        this.isSubmitting = false;
+        this.errorMessage = error;
+        this.loading = false;
       },
     });
-  }
-
-  forgotPassword(): void {
-    // Navigation vers le composant de réinitialisation de mot de passe
-    this.router.navigate(['/reset-password']);
   }
 }
